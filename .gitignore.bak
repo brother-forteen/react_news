@@ -1,0 +1,7 @@
+react-project/dist
+react-project/dist/
+react-project/node_modules
+.gitignore
+.idea
+.idea/
+
