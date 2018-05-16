@@ -3,6 +3,8 @@ import ReactDom from "react-dom"
 import ReactMixin from "react-mixin";
 import ComponentChild from "./child";
 import Mixin from "./mixin";
+import { Input } from 'antd';
+import { DatePicker } from 'antd';
 
 let defaultName = {name:"ddafasaf",sex:"男"};
 
@@ -62,6 +64,9 @@ export default class ComponentBody extends React.Component{
         <input ref="submitButton" id="input" type="button" value="提交" onClick={this.changeUserInfo.bind(this)} />
 
         <ComponentChild changeParentPhone={this.changeParentPhone.bind(this)}/>
+
+        <Input placeholder="Basic usage" />
+        <DatePicker />
       </div>
     )
   }

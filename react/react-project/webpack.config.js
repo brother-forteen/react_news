@@ -17,7 +17,11 @@ module.exports = {
                 query: {
                     presets: ['es2015', 'react']
                 } //将react编译成js文件
-            }
+            },{
+  				      test: /\.css$/,
+				        // loader: 'style-loader!css-loader?modules&importLoaders=1&localIdentName=[name]__[loacl]___[hash:base64:5]'
+                loader:'style-loader!css-loader'
+			      }
         ]
     },
 };

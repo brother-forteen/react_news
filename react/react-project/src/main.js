@@ -1,8 +1,10 @@
-let React = require("react");
-let ReactDom = require("react-dom");
+import React from "react";
+import ReactDom from "react-dom";
 import ComponentHeader from "../components/header";
 import ComponentBody from "../components/body";
 import ComponentFooter from "../components/footer";
+
+import 'antd/dist/antd.css';
 
 class Index extends React.Component{
   componentWillMount(){
