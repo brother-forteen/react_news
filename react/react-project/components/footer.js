@@ -13,6 +13,18 @@ import React from "react";
 // }
 
 export default class ComponentFooter extends React.Component{
+
+
+  constructor(props){
+      super(props);
+      this.checkHistory = this.checkHistory.bind(this);
+  }
+
+  checkHistory(){
+      console.log(this.props.history);
+  }
+
+
   render(){
     var footerConvertStyle = {
       "mainFooter":{
@@ -25,6 +37,7 @@ export default class ComponentFooter extends React.Component{
     return(
       <footer>
         <p style={footerConvertStyle.mainFooter}>this is the footer</p>
+        <button onClick={this.checkHistory}>查看历史记录</button>
       </footer>
     )
   }

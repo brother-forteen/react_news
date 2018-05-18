@@ -14,7 +14,8 @@ export default class ComponentBody extends React.Component{
     super();           // 调用基类的所有的初始化方法
     this.state = {
       sex: '男',
-      phone:110
+      phone:110,
+      name:"mr.chen"
     };
   }
 
@@ -58,7 +59,9 @@ export default class ComponentBody extends React.Component{
         {/* this is a 注释 */}
         <p>{htmlStr}</p>
         <p dangerouslySetInnerHTML={{__html : htmlStr1}}></p>
-        <p>{this.state.sex} {this.state.phone} {this.props.userInfo.name} {this.props.userInfo.sex}</p>
+
+        <p>{this.state.sex} {this.state.phone}</p>
+
 
         <p>父页面接收到的参数：{this.state.phone}</p>
         <input ref="submitButton" id="input" type="button" value="提交" onClick={this.changeUserInfo.bind(this)} />
@@ -71,11 +74,13 @@ export default class ComponentBody extends React.Component{
     )
   }
 }
-
+/*
 // ComponentBody.propTypes = {
 //   phone:React.propTypes.number.isRequired,
 //   name:React.propTypes.string
 // };
+*/
 ComponentBody.defaultProps = defaultName;
+
 
 ReactMixin(ComponentBody.prototype,Mixin);

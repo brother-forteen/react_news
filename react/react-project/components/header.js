@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "./footer";
 
 export default class ComponentHeader extends React.Component{
 
@@ -28,6 +29,7 @@ export default class ComponentHeader extends React.Component{
     return (
       <header style={styleComponentHeader.header} className="header_css" onClick={this.switchHeader.bind(this)}>
         <h1> this is a header component</h1>
+        <Footer />
       </header>
     )
   }
