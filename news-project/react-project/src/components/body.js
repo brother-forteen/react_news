@@ -1,0 +1,81 @@
+import React from "react";
+import ReactDom from "react-dom"
+import ReactMixin from "react-mixin";
+import ComponentChild from "./child";
+import Mixin from "./mixin";
+import { Input } from 'antd';
+import { DatePicker } from 'antd';
+
+let defaultName = {name:"ddafasaf",sex:"男"};
+
+export default class ComponentBody extends React.Component{
+
+  constructor(){
+    super();           // 调用基类的所有的初始化方法
+    this.state = {
+      sex: '男',
+      phone:183311667896,
+      name:"mr.chen",
+      addKey:'f7e628ff23588119d942d471fed9853d',
+    };
+  }
+
+  componentWillMount(){
+    // 定义自己的逻辑
+    console.log("组件将要挂载");
+  }
+
+  componentDidMount(){
+      console.log("组件已经挂载");
+      setTimeout(()=>{
+        this.setState({sex:"女"})
+      },3000)
+  }
+
+  changeUserInfo(){
+    this.setState({phone:10086});
+
+    Mixin.log();
+  }
+
+  changeParentPhone(e){
+    this.setState({phone:e.target.value});
+  }
+
+  render(){
+    let userName = 'party';
+    let boolInput = false;
+    var htmlStr = "react\u0020lesson";
+    var htmlStr1 = "react&nbsp;lesson";
+    return(
+      <div>
+        <h2> this is the body component</h2>
+        <p>{userName == '' ? '用户还没有登陆' : '用户名：' + userName}</p>
+        <input  type="button" value="确认" disabled={boolInput} />
+        {/* this is a 注释 */}
+        <p>{htmlStr}</p>
+        <p dangerouslySetInnerHTML={{__html : htmlStr1}}></p>
+
+        <p>{this.state.sex} {this.state.phone}</p>
+
+
+        <p>父页面接收到的参数：{this.state.phone}</p>
+
+        <ComponentChild changeParentPhone={this.changeParentPhone.bind(this)}/>
+
+        <Input placeholder="Basic usage" />
+        <DatePicker />
+      </div>
+    )
+  }
+}
+/*
+// ComponentBody.propTypes = {
+//   phone:React.propTypes.number.isRequired,
+//   name:React.propTypes.string
+// };
+*/
+ComponentBody.defaultProps = defaultName;
+
+
+ReactMixin(ComponentBody.prototype,Mixin);
